@@ -87,8 +87,9 @@
 - (void)loginButtonClick:(UIButton *)button
 {
     TSMainViewController *mainVC = [[TSMainViewController alloc] init];
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:mainVC];
     [self.navigationController pushViewController:mainVC animated:YES];
-    [UIApplication sharedApplication].keyWindow.rootViewController = mainVC;
+    [UIApplication sharedApplication].keyWindow.rootViewController = nc;
 
 }
 - (void)webViewDidStartLoad:(UIWebView *)webView

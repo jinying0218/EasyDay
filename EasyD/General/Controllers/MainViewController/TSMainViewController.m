@@ -7,13 +7,18 @@
 //
 
 #import "TSMainViewController.h"
+#import "TSMyProductsViewController.h"
 
 @interface TSMainViewController ()
+
+@property (weak, nonatomic) IBOutlet UIButton *myProductsBtn;
+@property (weak, nonatomic) IBOutlet UIButton *sampleBtn;
+@property (weak, nonatomic) IBOutlet UIButton *makeBtn;
 
 @end
 
 @implementation TSMainViewController
-
+#pragma mark - controller methods
 - (void)viewDidAppear:(BOOL)animated
 {
 }
@@ -25,8 +30,19 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
+#pragma mark - button  actions
+- (IBAction)myProductsButtonClick:(UIButton *)sender {
+    TSMyProductsViewController *myProductsVC = [[TSMyProductsViewController alloc] init];
+    
+    [self.navigationController pushViewController:myProductsVC animated:YES];
+}
+- (IBAction)sampleButtonClick:(UIButton *)sender {
+    
+}
+- (IBAction)makeButtonClick:(UIButton *)sender {
 
+}
 
 @end

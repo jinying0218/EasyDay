@@ -55,7 +55,7 @@
 
 - (void)createNavigationBarTitle:(NSString *)title leftButtonImageName:(NSString *)leftImage rightButtonImageName:(NSString *)rightImage
 {
-    self.navigationBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KscreenW, KnaviBarHeight)];
+    self.navigationBar = [[UIView alloc] initWithFrame:CGRectMake(0, STATUS_BAR_HEGHT, KscreenW, KnaviBarHeight)];
     self.navigationBar.backgroundColor = [UIColor colorWithHexString:@"#E0655A"];
     self.navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     

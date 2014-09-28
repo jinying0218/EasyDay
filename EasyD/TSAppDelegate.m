@@ -22,8 +22,8 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         TSFlashViewController *flashVC = [[TSFlashViewController alloc] init];
-        UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:flashVC];
-        self.window.rootViewController = nc;
+//        UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:flashVC];
+        self.window.rootViewController = flashVC;
 
     }else{
         TSMainViewController *mainVC = [[TSMainViewController alloc] init];

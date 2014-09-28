@@ -16,7 +16,7 @@
 #define GetUUIDCODE (CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, CFUUIDCreate(kCFAllocatorDefault))))
 
 #define STATUS_BAR_HEGHT (IOS7 ? 20.0f : 0.0f)
-#define KnaviBarHeight 68
+#define KnaviBarHeight 44
 
 #define KscreenW  [UIScreen mainScreen].bounds.size.width    // 屏幕的宽度
 #define KscreenH  [UIScreen mainScreen].bounds.size.height // 屏幕的高度
