@@ -16,18 +16,19 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isFirst"]){
-        TSMainViewController *mainVC = [[TSMainViewController alloc] init];
-        UINavigationController *naviController = [[UINavigationController alloc] initWithRootViewController:mainVC];
-        self.window.rootViewController = naviController;
-    }else{
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"notFirst"]){
         //第一次使用
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"notFirst"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
         TSFlashViewController *flashVC = [[TSFlashViewController alloc] init];
         UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:flashVC];
         self.window.rootViewController = nc;
 
-        
-        NSLog(@"learnGit");
+    }else{
+        TSMainViewController *mainVC = [[TSMainViewController alloc] init];
+        UINavigationController *naviController = [[UINavigationController alloc] initWithRootViewController:mainVC];
+        self.window.rootViewController = naviController;
     }
     
     self.window.backgroundColor = [UIColor whiteColor];
