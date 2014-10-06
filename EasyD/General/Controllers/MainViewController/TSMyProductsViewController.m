@@ -31,12 +31,13 @@ static  NSString *const productionsCellIdentifier = @"productionsCellIdentifier"
     [super didReceiveMemoryWarning];
     
 }
-
+#pragma mark - initialize
 - (void)initializeData
 {
     self.productsList = @[@"聚会",@"吃饭",@"K歌",@"看电影",@"逛街"];
 }
 
+#pragma mark - setupUI
 - (void)setupProductTableView
 {
     [self createNavigationBarTitle:@"我的作品" leftButtonImageName:@"Previous" rightButtonImageName:nil];
@@ -56,7 +57,7 @@ static  NSString *const productionsCellIdentifier = @"productionsCellIdentifier"
     [self.view addSubview:self.productTable];
 
 }
-
+#pragma mark - tableViewDelegate methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
 }

@@ -206,10 +206,10 @@
 		7B32F9DC19D86BCD002EB0D2 /* HTMLs */ = {
 			isa = PBXGroup;
 			children = (
+				7B32F9E719D86BCD002EB0D2 /* index.html */,
 				7B32F9DD19D86BCD002EB0D2 /* css */,
 				7B32F9DF19D86BCD002EB0D2 /* flashImage */,
 				7B32F9E319D86BCD002EB0D2 /* images */,
-				7B32F9E719D86BCD002EB0D2 /* index.html */,
 				7B32F9E819D86BCD002EB0D2 /* js */,
 			);
 			path = HTMLs;

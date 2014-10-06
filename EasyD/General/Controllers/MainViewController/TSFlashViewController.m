@@ -20,6 +20,7 @@
 
 @implementation TSFlashViewController
 
+#pragma mark - controller methods
 - (void)viewDidAppear:(BOOL)animated
 {
     [UIApplication sharedApplication].statusBarHidden = YES;
@@ -34,6 +35,11 @@
     self.view.backgroundColor = [UIColor lightGrayColor];
     [self setupFlashView];
 }
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+#pragma mark - setupUI
 - (void)setupFlashView
 {
     _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake( 0, 0, KscreenW, KscreenH)];
@@ -45,16 +51,20 @@
 
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake( 0, 0, KscreenW, KscreenH)];
 //    self.webView.scalesPageToFit = YES;
-    self.webView.backgroundColor = [UIColor yellowColor];
-    NSString *filePath = [[NSBundle mainBundle]pathForResource:@"index" ofType:@"html"];
-    NSStringEncoding strEncode = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingHZ_GB_2312);
-
-    NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:strEncode error:nil];
     
-//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:filePath]];
-//    [_webView loadRequest:request];
-    [self.webView loadHTMLString:htmlString baseURL:[NSURL URLWithString:@"http://www.baidu.com"]];
+    NSString *filePath = [[NSBundle mainBundle]pathForResource:@"index" ofType:@"html"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:filePath]];
+    [_webView loadRequest:request];
+
+//    NSStringEncoding strEncode = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingHZ_GB_2312);
+
+//    NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:strEncode error:nil];
+    
+    
+//    [self.webView loadHTMLString:htmlString baseURL:[NSURL URLWithString:@"http://www.baidu.com"]];
     self.webView.delegate = self;
+    
+    
     [_scrollView addSubview:self.webView];
     
     UIView *secondView = [[UIView alloc] initWithFrame:CGRectMake( KscreenW, 0, KscreenW, KscreenH)];
@@ -92,6 +102,8 @@
     [UIApplication sharedApplication].keyWindow.rootViewController = nc;
 
 }
+
+#pragma mark - UIWebViewDelegate methods
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     NSLog(@"开始加载");
@@ -102,8 +114,5 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
 
 @end
