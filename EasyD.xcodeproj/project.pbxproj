@@ -8,18 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		77ED6E7F0A924E168A18BFCB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA81DD80757410382E9E216 /* libPods.a */; };
+		7B069A4F19E26ED9007A522D /* HTMLs in Resources */ = {isa = PBXBuildFile; fileRef = 7B069A4E19E26ED9007A522D /* HTMLs */; };
 		7B32F9D919D86104002EB0D2 /* TSMyProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B32F9D719D86104002EB0D2 /* TSMyProductsViewController.m */; };
 		7B32F9DA19D86104002EB0D2 /* TSMyProductsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B32F9D819D86104002EB0D2 /* TSMyProductsViewController.xib */; };
-		7B32F9EE19D86BCD002EB0D2 /* zzsc.css in Resources */ = {isa = PBXBuildFile; fileRef = 7B32F9DE19D86BCD002EB0D2 /* zzsc.css */; };
-		7B32F9EF19D86BCD002EB0D2 /* flashImage1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7B32F9E019D86BCD002EB0D2 /* flashImage1.jpg */; };
-		7B32F9F019D86BCD002EB0D2 /* flashImage2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7B32F9E119D86BCD002EB0D2 /* flashImage2.jpg */; };
-		7B32F9F119D86BCD002EB0D2 /* flashImage3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7B32F9E219D86BCD002EB0D2 /* flashImage3.jpg */; };
-		7B32F9F219D86BCD002EB0D2 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7B32F9E419D86BCD002EB0D2 /* 1.jpg */; };
-		7B32F9F319D86BCD002EB0D2 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7B32F9E519D86BCD002EB0D2 /* 2.jpg */; };
-		7B32F9F419D86BCD002EB0D2 /* add.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7B32F9E619D86BCD002EB0D2 /* add.jpg */; };
-		7B32F9F519D86BCD002EB0D2 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 7B32F9E719D86BCD002EB0D2 /* index.html */; };
-		7B32F9F619D86BCD002EB0D2 /* jquery.devrama.slider.js in Resources */ = {isa = PBXBuildFile; fileRef = 7B32F9E919D86BCD002EB0D2 /* jquery.devrama.slider.js */; };
-		7B32F9F719D86BCD002EB0D2 /* jquery.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 7B32F9EA19D86BCD002EB0D2 /* jquery.min.js */; };
 		7B32F9F819D86BCD002EB0D2 /* Previous.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B32F9EC19D86BCD002EB0D2 /* Previous.png */; };
 		7B32F9F919D86BCD002EB0D2 /* Previous_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B32F9ED19D86BCD002EB0D2 /* Previous_highlighted.png */; };
 		7B75955219D3239C00973CA7 /* BSJSONEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B75952E19D3239C00973CA7 /* BSJSONEncoder.m */; };
@@ -68,19 +59,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B069A4E19E26ED9007A522D /* HTMLs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HTMLs; sourceTree = "<group>"; };
 		7B32F9D619D86104002EB0D2 /* TSMyProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMyProductsViewController.h; sourceTree = "<group>"; };
 		7B32F9D719D86104002EB0D2 /* TSMyProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMyProductsViewController.m; sourceTree = "<group>"; };
 		7B32F9D819D86104002EB0D2 /* TSMyProductsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSMyProductsViewController.xib; sourceTree = "<group>"; };
-		7B32F9DE19D86BCD002EB0D2 /* zzsc.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = zzsc.css; sourceTree = "<group>"; };
-		7B32F9E019D86BCD002EB0D2 /* flashImage1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flashImage1.jpg; sourceTree = "<group>"; };
-		7B32F9E119D86BCD002EB0D2 /* flashImage2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flashImage2.jpg; sourceTree = "<group>"; };
-		7B32F9E219D86BCD002EB0D2 /* flashImage3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flashImage3.jpg; sourceTree = "<group>"; };
-		7B32F9E419D86BCD002EB0D2 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
-		7B32F9E519D86BCD002EB0D2 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
-		7B32F9E619D86BCD002EB0D2 /* add.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = add.jpg; sourceTree = "<group>"; };
-		7B32F9E719D86BCD002EB0D2 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		7B32F9E919D86BCD002EB0D2 /* jquery.devrama.slider.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.devrama.slider.js; sourceTree = "<group>"; };
-		7B32F9EA19D86BCD002EB0D2 /* jquery.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.min.js; sourceTree = "<group>"; };
 		7B32F9EC19D86BCD002EB0D2 /* Previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Previous.png; sourceTree = "<group>"; };
 		7B32F9ED19D86BCD002EB0D2 /* Previous_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Previous_highlighted.png; sourceTree = "<group>"; };
 		7B75952D19D3239C00973CA7 /* BSJSONEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSJSONEncoder.h; sourceTree = "<group>"; };
@@ -203,55 +185,6 @@
 			path = SettViewController;
 			sourceTree = "<group>";
 		};
-		7B32F9DC19D86BCD002EB0D2 /* HTMLs */ = {
-			isa = PBXGroup;
-			children = (
-				7B32F9E719D86BCD002EB0D2 /* index.html */,
-				7B32F9DD19D86BCD002EB0D2 /* css */,
-				7B32F9DF19D86BCD002EB0D2 /* flashImage */,
-				7B32F9E319D86BCD002EB0D2 /* images */,
-				7B32F9E819D86BCD002EB0D2 /* js */,
-			);
-			path = HTMLs;
-			sourceTree = "<group>";
-		};
-		7B32F9DD19D86BCD002EB0D2 /* css */ = {
-			isa = PBXGroup;
-			children = (
-				7B32F9DE19D86BCD002EB0D2 /* zzsc.css */,
-			);
-			path = css;
-			sourceTree = "<group>";
-		};
-		7B32F9DF19D86BCD002EB0D2 /* flashImage */ = {
-			isa = PBXGroup;
-			children = (
-				7B32F9E019D86BCD002EB0D2 /* flashImage1.jpg */,
-				7B32F9E119D86BCD002EB0D2 /* flashImage2.jpg */,
-				7B32F9E219D86BCD002EB0D2 /* flashImage3.jpg */,
-			);
-			path = flashImage;
-			sourceTree = "<group>";
-		};
-		7B32F9E319D86BCD002EB0D2 /* images */ = {
-			isa = PBXGroup;
-			children = (
-				7B32F9E419D86BCD002EB0D2 /* 1.jpg */,
-				7B32F9E519D86BCD002EB0D2 /* 2.jpg */,
-				7B32F9E619D86BCD002EB0D2 /* add.jpg */,
-			);
-			path = images;
-			sourceTree = "<group>";
-		};
-		7B32F9E819D86BCD002EB0D2 /* js */ = {
-			isa = PBXGroup;
-			children = (
-				7B32F9E919D86BCD002EB0D2 /* jquery.devrama.slider.js */,
-				7B32F9EA19D86BCD002EB0D2 /* jquery.min.js */,
-			);
-			path = js;
-			sourceTree = "<group>";
-		};
 		7B32F9EB19D86BCD002EB0D2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,7 +281,7 @@
 		7B75954E19D3239C00973CA7 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				7B32F9DC19D86BCD002EB0D2 /* HTMLs */,
+				7B069A4E19E26ED9007A522D /* HTMLs */,
 				7B32F9EB19D86BCD002EB0D2 /* Images */,
 			);
 			path = Resource;
@@ -576,23 +509,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B32F9F319D86BCD002EB0D2 /* 2.jpg in Resources */,
 				7B32F9F919D86BCD002EB0D2 /* Previous_highlighted.png in Resources */,
 				7B9D850019D3214F00FB3796 /* InfoPlist.strings in Resources */,
-				7B32F9F019D86BCD002EB0D2 /* flashImage2.jpg in Resources */,
-				7B32F9F519D86BCD002EB0D2 /* index.html in Resources */,
-				7B32F9F419D86BCD002EB0D2 /* add.jpg in Resources */,
 				7B9D850819D3214F00FB3796 /* Images.xcassets in Resources */,
-				7B32F9F119D86BCD002EB0D2 /* flashImage3.jpg in Resources */,
-				7B32F9F719D86BCD002EB0D2 /* jquery.min.js in Resources */,
 				7B32F9DA19D86104002EB0D2 /* TSMyProductsViewController.xib in Resources */,
 				7B75957919D326F500973CA7 /* TSFlashViewController.xib in Resources */,
+				7B069A4F19E26ED9007A522D /* HTMLs in Resources */,
 				7B75957119D3268300973CA7 /* TSMainViewController.xib in Resources */,
-				7B32F9F619D86BCD002EB0D2 /* jquery.devrama.slider.js in Resources */,
 				7B32F9F819D86BCD002EB0D2 /* Previous.png in Resources */,
-				7B32F9EE19D86BCD002EB0D2 /* zzsc.css in Resources */,
-				7B32F9EF19D86BCD002EB0D2 /* flashImage1.jpg in Resources */,
-				7B32F9F219D86BCD002EB0D2 /* 1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -50,18 +50,20 @@
     [self.view addSubview:_scrollView];
 
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake( 0, 0, KscreenW, KscreenH)];
-//    self.webView.scalesPageToFit = YES;
-    
-    NSString *filePath = [[NSBundle mainBundle]pathForResource:@"index" ofType:@"html"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:filePath]];
-    [_webView loadRequest:request];
+    self.webView.scalesPageToFit = YES;
+    //1)
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"HTMLs"];
+    NSString *baseFilePath = [NSString stringWithFormat:@"%@/HTMLs",[[NSBundle mainBundle] bundlePath]];
+    //把图片路径转换成HTML的路径
+    baseFilePath = [baseFilePath stringByReplacingOccurrencesOfString:@"/" withString:@"//"];
+    baseFilePath = [baseFilePath stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    NSURL *baseURL = [NSURL URLWithString:[NSString stringWithFormat:@"file:/%@//",baseFilePath]];
+//    NSLog(@"baseurl = %@",baseURL);
 
-//    NSStringEncoding strEncode = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingHZ_GB_2312);
-
-//    NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:strEncode error:nil];
+    NSStringEncoding gb2312 = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    NSString *htmlstring=[[NSString alloc] initWithContentsOfFile:filePath  encoding:gb2312 error:nil];
     
-    
-//    [self.webView loadHTMLString:htmlString baseURL:[NSURL URLWithString:@"http://www.baidu.com"]];
+    [self.webView loadHTMLString:htmlstring baseURL:baseURL];
     self.webView.delegate = self;
     
     
@@ -104,13 +106,20 @@
 }
 
 #pragma mark - UIWebViewDelegate methods
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+
+
+    return YES;
+}
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    NSLog(@"开始加载");
+//    NSString *js = @"document.getElementById('lg').innerHTML";
+//    NSString *pageSource = [webView stringByEvaluatingJavaScriptFromString:js];
+//    NSLog(@"开始加载");
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    NSLog(@"加载完成");
 }
 
 
