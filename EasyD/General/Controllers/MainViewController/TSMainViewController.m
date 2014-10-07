@@ -8,6 +8,7 @@
 
 #import "TSMainViewController.h"
 #import "TSMyProductsViewController.h"
+#import "TSMakeFirstViewController.h"
 
 @interface TSMainViewController ()
 
@@ -43,6 +44,8 @@
 }
 - (IBAction)makeButtonClick:(UIButton *)sender {
 
+    TSMakeFirstViewController *makeFirstVC = [[TSMakeFirstViewController alloc] init];
+    [self.navigationController pushViewController:makeFirstVC animated:YES];
 }
 
 @end
