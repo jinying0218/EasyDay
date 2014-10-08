@@ -22,6 +22,7 @@
     [super viewDidLoad];
     [self initializeData];
     [self setupUI];
+    self.view.backgroundColor = [UIColor purpleColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,11 +64,11 @@
     
     UITextField *chooseEventField = (UITextField *)[self.view viewWithTag:Tag_TextField + 1];
     
-    self.eventPicker = [[UIPickerView alloc] initWithFrame:CGRectMake( CGRectGetMinX(chooseEventField.frame), CGRectGetMaxY(chooseEventField.frame) + 10, 150, self.pickerDataArray.count * 44)];
+    self.eventPicker = [[UIPickerView alloc] initWithFrame:CGRectMake( 0, 0, 150, self.pickerDataArray.count * 44)];
     self.eventPicker.dataSource = self;
     self.eventPicker.delegate = self;
     [self.eventPicker selectRow:2 inComponent:0 animated:YES];
-    [self.view addSubview:self.eventPicker];
+//    [self.view addSubview:self.eventPicker];
     chooseEventField.inputView = self.eventPicker;
     
     UIView *finishChooseBar = [[UIView alloc] initWithFrame:CGRectMake( 0, CGRectGetMinY(self.eventPicker.frame), KscreenW, 44)];
@@ -103,7 +104,6 @@
 #pragma mark - button actions
 - (void)finishChooseButtonClick:(UIButton *)button
 {
-    NSLog(@"asdfj");
     UITextField *chooseEventField = (UITextField *)[self.view viewWithTag:Tag_TextField + 1];
     chooseEventField.text = self.pickerDataArray[[self.eventPicker selectedRowInComponent:0]];
     [self.view endEditing:YES];
@@ -114,8 +114,20 @@
 }
 - (void)nextButtonClick:(UIButton *)button
 {
-    TSShareViewController *shareVC = [[TSShareViewController alloc] init];
-    [self.navigationController pushViewController:shareVC animated:YES];
+    UITextField *nameField = (UITextField *)[self.view viewWithTag:Tag_TextField];
+    UITextField *eventField = (UITextField *)[self.view viewWithTag:Tag_TextField + 1];
+    UITextField *addressField = (UITextField *)[self.view viewWithTag:Tag_TextField + 2];
+    UITextField *timeField = (UITextField *)[self.view viewWithTag:Tag_TextField + 3];
+    if (![nameField.text isEqualToString:@""] &&
+        ![eventField.text isEqualToString:@""] &&
+        ![addressField.text isEqualToString:@""] &&
+        ![timeField.text isEqualToString:@""]) {
+        TSShareViewController *shareVC = [[TSShareViewController alloc] init];
+        [self.navigationController pushViewController:shareVC animated:YES];
+    }else{
+        [self showProgressHUD:@"小样,你漏掉了某项( ˇ ˍ ˇ )" delay:1];
+    }
+    
 }
 
 #pragma mark - UIPickerViewDataSource delegate method
@@ -131,10 +143,7 @@
 {
     return self.pickerDataArray[row];
 }
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-    NSLog(@"%d",row);
-}
+
 #pragma  mark - UITextField methods
 - (void)textFieldDidChange:(NSNotification *)notification
 {
