@@ -76,9 +76,17 @@
 }
 
 #pragma mark - UITextView delegate
+
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
     
 }
-
+- (void)textViewDidChange:(UITextView *)textView
+{
+    if (textView.text.length > 20) {
+        [self showProgressHUD:@"只允许输入20个字,且写且珍惜!" delay:1];
+        
+        textView.text = [textView.text substringToIndex:20];
+    }
+}
 @end

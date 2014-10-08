@@ -32,6 +32,8 @@
     [self createProgressNavigationBar:@"End"];
     [self.view addSubview:self.progressNaviBar];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:nil];
+    
     NSArray *labelNameArray = @[@"Ta的大名:",@"约Ta干嘛:",@"地点:",@"时间:"];
     for (int i = 0; i < 4; i ++) {
         UILabel *label = [[UILabel alloc] init];
@@ -52,7 +54,7 @@
         textField.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:textField];
     }
-
+    
     UITextField *textField = (UITextField *)[self.view viewWithTag:Tag_TextField + 3];
     
     UIButton *returnBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -80,6 +82,39 @@
 {
     TSShareViewController *shareVC = [[TSShareViewController alloc] init];
     [self.navigationController pushViewController:shareVC animated:YES];
+}
+#pragma  mark - UITextField methods
+- (void)textFieldDidChange:(NSNotification *)notification
+{
+    UITextField *nameTextField = (UITextField *)[self.view viewWithTag:Tag_TextField];
+    if (nameTextField.text.length > 20) {
+        [self showProgressHUD:@"您这名字也太长了吧(⊙o⊙)…" delay:1];
+        nameTextField.text = [nameTextField.text substringToIndex:20];
+    }
+
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    switch (textField.tag) {
+        case Tag_TextField:{
+
+        }
+            break;
+        case Tag_TextField + 1:{
+            
+        }
+            break;
+        case Tag_TextField + 2:{
+            
+        }
+            break;
+        case Tag_TextField + 3:{
+            
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 @end
