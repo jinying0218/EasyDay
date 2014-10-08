@@ -15,6 +15,8 @@
 		7B0BEE9619E38D9700334064 /* TSMakeSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B0BEE9419E38D9700334064 /* TSMakeSecondViewController.xib */; };
 		7B0BEE9A19E38DB200334064 /* TSMakeEndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0BEE9819E38DB200334064 /* TSMakeEndViewController.m */; };
 		7B0BEE9B19E38DB200334064 /* TSMakeEndViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B0BEE9919E38DB200334064 /* TSMakeEndViewController.xib */; };
+		7B1E3C7219E5781900E05F35 /* TSShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1E3C7019E5781900E05F35 /* TSShareViewController.m */; };
+		7B1E3C7319E5781900E05F35 /* TSShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B1E3C7119E5781900E05F35 /* TSShareViewController.xib */; };
 		7B32F9D919D86104002EB0D2 /* TSMyProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B32F9D719D86104002EB0D2 /* TSMyProductsViewController.m */; };
 		7B32F9DA19D86104002EB0D2 /* TSMyProductsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B32F9D819D86104002EB0D2 /* TSMyProductsViewController.xib */; };
 		7B32F9F819D86BCD002EB0D2 /* Previous.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B32F9EC19D86BCD002EB0D2 /* Previous.png */; };
@@ -75,6 +77,9 @@
 		7B0BEE9719E38DB200334064 /* TSMakeEndViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMakeEndViewController.h; sourceTree = "<group>"; };
 		7B0BEE9819E38DB200334064 /* TSMakeEndViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMakeEndViewController.m; sourceTree = "<group>"; };
 		7B0BEE9919E38DB200334064 /* TSMakeEndViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSMakeEndViewController.xib; sourceTree = "<group>"; };
+		7B1E3C6F19E5781900E05F35 /* TSShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSShareViewController.h; sourceTree = "<group>"; };
+		7B1E3C7019E5781900E05F35 /* TSShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSShareViewController.m; sourceTree = "<group>"; };
+		7B1E3C7119E5781900E05F35 /* TSShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSShareViewController.xib; sourceTree = "<group>"; };
 		7B32F9D619D86104002EB0D2 /* TSMyProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMyProductsViewController.h; sourceTree = "<group>"; };
 		7B32F9D719D86104002EB0D2 /* TSMyProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMyProductsViewController.m; sourceTree = "<group>"; };
 		7B32F9D819D86104002EB0D2 /* TSMyProductsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSMyProductsViewController.xib; sourceTree = "<group>"; };
@@ -199,6 +204,16 @@
 			name = Second;
 			sourceTree = "<group>";
 		};
+		7B1E3C6E19E5780200E05F35 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				7B1E3C6F19E5781900E05F35 /* TSShareViewController.h */,
+				7B1E3C7019E5781900E05F35 /* TSShareViewController.m */,
+				7B1E3C7119E5781900E05F35 /* TSShareViewController.xib */,
+			);
+			name = Share;
+			sourceTree = "<group>";
+		};
 		7B32F9D319D8606F002EB0D2 /* 我的作品 */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +237,7 @@
 				7B0BEE8F19E38D4700334064 /* First */,
 				7B0BEE9119E38D6700334064 /* Second */,
 				7B0BEE9019E38D6400334064 /* End */,
+				7B1E3C6E19E5780200E05F35 /* Share */,
 			);
 			name = "开始制作";
 			sourceTree = "<group>";
@@ -568,6 +584,7 @@
 				7B0BEE8E19E38D3D00334064 /* TSMakeFirstViewController.xib in Resources */,
 				7B75957119D3268300973CA7 /* TSMainViewController.xib in Resources */,
 				7B32F9F819D86BCD002EB0D2 /* Previous.png in Resources */,
+				7B1E3C7319E5781900E05F35 /* TSShareViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,6 +661,7 @@
 				7B75955519D3239C00973CA7 /* NSScanner+BSJSONAdditions.m in Sources */,
 				7B9D850619D3214F00FB3796 /* TSAppDelegate.m in Sources */,
 				7B75955619D3239C00973CA7 /* NSString+BSJSONAdditions.m in Sources */,
+				7B1E3C7219E5781900E05F35 /* TSShareViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -74,6 +74,7 @@
         [leftBtn setImageEdgeInsets:UIEdgeInsetsMake( 6, 10, 6, 0)];
         [leftBtn addTarget:self action:@selector(leftButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         leftBtn.backgroundColor = [UIColor clearColor];
+        [leftBtn setTitle:@"返回修改" forState:UIControlStateNormal];
         [self.navigationBar addSubview:leftBtn];
         
     }
@@ -88,6 +89,7 @@
             [rightBtn setImage:[UIImage imageNamedString:@"nav_cancel"] forState:UIControlStateSelected];
         }
         [rightBtn addTarget:self action:@selector(rightButtonOnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [rightBtn setTitle:@"首页" forState:UIControlStateNormal];
         [self.navigationBar addSubview:rightBtn];
     }
     
@@ -133,7 +135,7 @@
 }
 - (void)rightButtonOnClick:(UIButton *)button
 {
-    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

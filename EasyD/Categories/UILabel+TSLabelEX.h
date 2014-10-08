@@ -10,7 +10,7 @@
 
 @interface UILabel (TSLabelEX)
 
-+ (UILabel *)lableWithText:(NSString *)text fontname:(NSString *)fontname fontSize:(CGFloat)font color:(NSString *)color;
++ (UILabel *)lableWithText:(NSString *)text FontName:(NSString *)fontName FontSize:(CGFloat)fontSize FontColor:(NSString *)color;
 /**
  *  返回一个UILabel的size
  *

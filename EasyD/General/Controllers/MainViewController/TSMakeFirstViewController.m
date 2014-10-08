@@ -39,7 +39,6 @@
     choosePicLabel.textColor = [UIColor colorWithHexString:@"#ffffff"];
     choosePicLabel.font = [UIFont systemFontOfSize:15];
     choosePicLabel.backgroundColor = [UIColor clearColor];
-
     [self.view addSubview:choosePicLabel];
     
     UIButton *choosePicBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -50,7 +49,7 @@
     [self.view addSubview:choosePicBtn];
     
     UIButton *returnBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    returnBtn.backgroundColor = [UIColor yellowColor];
+    returnBtn.backgroundColor = [UIColor redColor];
     [returnBtn setTitle:@"上一步" forState:UIControlStateNormal];
     returnBtn.frame = CGRectMake( 50, CGRectGetMaxY(choosePicBtn.frame) + 30, 60, 44);
     [returnBtn addTarget:self action:@selector(returnButtonClick:) forControlEvents:UIControlEventTouchUpInside];
