@@ -11,14 +11,16 @@
 
 #define Tag_TextField 3000
 
-@interface TSMakeEndViewController ()<UITextFieldDelegate>
-
+@interface TSMakeEndViewController ()<UITextFieldDelegate,UIPickerViewDataSource, UIPickerViewDelegate>
+@property (nonatomic, strong) NSArray *pickerDataArray;
+@property (nonatomic, strong) UIPickerView *eventPicker;
 @end
 
 @implementation TSMakeEndViewController
 #pragma mark - controller methods
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initializeData];
     [self setupUI];
 }
 
@@ -26,6 +28,10 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)initializeData
+{
+    self.pickerDataArray = @[@"聚会",@"K歌",@"吃饭",@"看电影",@"逛街"];
+}
 #pragma mark - setupUI methods
 - (void)setupUI
 {
@@ -55,15 +61,36 @@
         [self.view addSubview:textField];
     }
     
-    UITextField *textField = (UITextField *)[self.view viewWithTag:Tag_TextField + 3];
+    UITextField *chooseEventField = (UITextField *)[self.view viewWithTag:Tag_TextField + 1];
     
+    self.eventPicker = [[UIPickerView alloc] initWithFrame:CGRectMake( CGRectGetMinX(chooseEventField.frame), CGRectGetMaxY(chooseEventField.frame) + 10, 150, self.pickerDataArray.count * 44)];
+    self.eventPicker.dataSource = self;
+    self.eventPicker.delegate = self;
+    [self.eventPicker selectRow:2 inComponent:0 animated:YES];
+    [self.view addSubview:self.eventPicker];
+    chooseEventField.inputView = self.eventPicker;
+    
+    UIView *finishChooseBar = [[UIView alloc] initWithFrame:CGRectMake( 0, CGRectGetMinY(self.eventPicker.frame), KscreenW, 44)];
+    finishChooseBar.userInteractionEnabled = YES;
+    finishChooseBar.backgroundColor = [UIColor blueColor];
+    chooseEventField.inputAccessoryView = finishChooseBar;
+    
+    UIButton *finishChooseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [finishChooseBtn setTitle:@"完成" forState:UIControlStateNormal];
+    finishChooseBtn.layer.borderWidth = 1;
+    finishChooseBtn.layer.cornerRadius = 5;
+    [finishChooseBtn addTarget:self action:@selector(finishChooseButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    finishChooseBtn.frame = CGRectMake( KscreenW - 80, 10, 60, 24);
+    [finishChooseBar addSubview:finishChooseBtn];
+    
+    UITextField *textField = (UITextField *)[self.view viewWithTag:Tag_TextField + 3];
+
     UIButton *returnBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     returnBtn.backgroundColor = [UIColor redColor];
     [returnBtn setTitle:@"上一步" forState:UIControlStateNormal];
     returnBtn.frame = CGRectMake( 30, CGRectGetMaxY(textField.frame) + 100, 60, 44);
     [returnBtn addTarget:self action:@selector(returnButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:returnBtn];
-    
     
     UIButton *nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     nextBtn.backgroundColor = [UIColor yellowColor];
@@ -74,6 +101,13 @@
 
 }
 #pragma mark - button actions
+- (void)finishChooseButtonClick:(UIButton *)button
+{
+    NSLog(@"asdfj");
+    UITextField *chooseEventField = (UITextField *)[self.view viewWithTag:Tag_TextField + 1];
+    chooseEventField.text = self.pickerDataArray[[self.eventPicker selectedRowInComponent:0]];
+    [self.view endEditing:YES];
+}
 - (void)returnButtonClick:(UIButton *)button
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -82,6 +116,24 @@
 {
     TSShareViewController *shareVC = [[TSShareViewController alloc] init];
     [self.navigationController pushViewController:shareVC animated:YES];
+}
+
+#pragma mark - UIPickerViewDataSource delegate method
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return self.pickerDataArray.count;
+}
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component;
+{
+    return self.pickerDataArray[row];
+}
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    NSLog(@"%d",row);
 }
 #pragma  mark - UITextField methods
 - (void)textFieldDidChange:(NSNotification *)notification
