@@ -9,8 +9,9 @@
 #import "TSMakeFirstViewController.h"
 #import "TSMakeSecondViewController.h"
 
-@interface TSMakeFirstViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
-
+@interface TSMakeFirstViewController ()<UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@property (nonatomic, strong) UIImagePickerController *imagePickerController;
+@property (nonatomic, strong) UIButton *choosePicBtn;
 @end
 
 @implementation TSMakeFirstViewController
@@ -41,17 +42,17 @@
     choosePicLabel.backgroundColor = [UIColor clearColor];
     [self.view addSubview:choosePicLabel];
     
-    UIButton *choosePicBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    choosePicBtn.frame = CGRectMake( 50, CGRectGetMaxY(choosePicLabel.frame) + 30, 100, 100);
-    choosePicBtn.backgroundColor = [UIColor yellowColor];
-    [choosePicBtn setTitle:@"选择照片" forState:UIControlStateNormal];
-    [choosePicBtn addTarget:self action:@selector(choosePicButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:choosePicBtn];
+    self.choosePicBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.choosePicBtn.frame = CGRectMake( 50, CGRectGetMaxY(choosePicLabel.frame) + 30, 100, 100);
+    self.choosePicBtn.backgroundColor = [UIColor yellowColor];
+    [self.choosePicBtn setTitle:@"选择照片" forState:UIControlStateNormal];
+    [self.choosePicBtn addTarget:self action:@selector(choosePicButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.choosePicBtn];
     
     UIButton *returnBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     returnBtn.backgroundColor = [UIColor redColor];
     [returnBtn setTitle:@"上一步" forState:UIControlStateNormal];
-    returnBtn.frame = CGRectMake( 50, CGRectGetMaxY(choosePicBtn.frame) + 30, 60, 44);
+    returnBtn.frame = CGRectMake( 50, CGRectGetMaxY(self.choosePicBtn.frame) + 30, 60, 44);
     [returnBtn addTarget:self action:@selector(returnButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:returnBtn];
 
@@ -59,7 +60,7 @@
     UIButton *nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     nextBtn.backgroundColor = [UIColor yellowColor];
     [nextBtn setTitle:@"下一步" forState:UIControlStateNormal];
-    nextBtn.frame = CGRectMake( CGRectGetMaxX(returnBtn.frame) + 30, CGRectGetMaxY(choosePicBtn.frame) + 30, 60, 44);
+    nextBtn.frame = CGRectMake( CGRectGetMaxX(returnBtn.frame) + 30, CGRectGetMaxY(self.choosePicBtn.frame) + 30, 60, 44);
     [nextBtn addTarget:self action:@selector(nextButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:nextBtn];
     
@@ -67,22 +68,14 @@
 #pragma mark - button actions
 - (void)choosePicButtonClick:(UIButton *)button
 {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从相册选择", nil];
+    [actionSheet showInView:[UIApplication sharedApplication].keyWindow];
+
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-        [imagePickerController setDelegate:self];
-        [imagePickerController setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-        [imagePickerController setAllowsEditing:NO];
-        [self presentViewController:imagePickerController animated:YES completion:NULL];
     }else if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-        [imagePickerController setDelegate:self];
-        [imagePickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
-        [imagePickerController setAllowsEditing:NO];
-        [self presentViewController:imagePickerController animated:YES completion:NULL];
     }
 
 }
-
 - (void)returnButtonClick:(UIButton *)button
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -92,6 +85,32 @@
     TSMakeSecondViewController *secondVC = [[TSMakeSecondViewController alloc] init];
     [self.navigationController pushViewController:secondVC animated:YES];
 }
+#pragma mark - UIActionSheetDelegate method
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:{
+            self.imagePickerController = [[UIImagePickerController alloc] init];
+            [self.imagePickerController setDelegate:self];
+            [self.imagePickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
+            [self.imagePickerController setAllowsEditing:NO];
+            [self presentViewController:self.imagePickerController animated:YES completion:NULL];
+
+        }
+            break;
+        case 1:{
+            self.imagePickerController = [[UIImagePickerController alloc] init];
+            [self.imagePickerController setDelegate:self];
+            [self.imagePickerController setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+            [self.imagePickerController setAllowsEditing:NO];
+            [self presentViewController:self.imagePickerController animated:YES completion:NULL];
+
+        }
+            break;
+        default:
+            break;
+    }
+}
 #pragma mark - UINavigationControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
 {
@@ -99,10 +118,12 @@
 }
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    
+    UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    [self.choosePicBtn setImage:image forState:UIControlStateNormal];
+    [self.imagePickerController dismissViewControllerAnimated:YES completion:NULL];
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    
+    [self.imagePickerController dismissViewControllerAnimated:YES completion:NULL];
 }
 @end

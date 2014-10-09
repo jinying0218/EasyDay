@@ -37,7 +37,6 @@
 #pragma mark - button  actions
 - (IBAction)myProductsButtonClick:(UIButton *)sender {
     TSMyProductsViewController *myProductsVC = [[TSMyProductsViewController alloc] init];
-    
     [self.navigationController pushViewController:myProductsVC animated:YES];
 }
 - (IBAction)sampleButtonClick:(UIButton *)sender {

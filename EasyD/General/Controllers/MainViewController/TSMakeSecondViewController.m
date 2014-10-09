@@ -86,7 +86,7 @@
     if (textView.text.length > 20) {
         [self showProgressHUD:@"只允许输入20个字,且写且珍惜!" delay:1];
         
-        textView.text = [textView.text substringToIndex:20];
+//        textView.text = [textView.text substringToIndex:19];
     }
 }
 @end
