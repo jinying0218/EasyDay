@@ -15,10 +15,12 @@
 @property (nonatomic, strong) TSRootView *rootView;
 @property (nonatomic, strong) TSScrollView *rootScrollView;
 @property (nonatomic, strong) UIView *navigationBar;
+@property (nonatomic, strong) UIView *progressNaviBar;
 
 - (void)createRootScrollView;
 - (void)creatRootView;
 - (void)createNavigationBarTitle:(NSString *)title leftButtonImageName:(NSString *)leftImage rightButtonImageName:(NSString *)rightImage;
+- (void)createProgressNavigationBar:(NSString *)currentStep;
 
 - (void)showProgressHUD:(NSString *)content delay:(double)delaySeconds;
 - (void)showProgressHUD;

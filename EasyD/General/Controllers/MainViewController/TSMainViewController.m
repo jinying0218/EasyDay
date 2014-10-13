@@ -8,6 +8,8 @@
 
 #import "TSMainViewController.h"
 #import "TSMyProductsViewController.h"
+#import "TSTemplateViewController.h"
+#import "TSMakeFirstViewController.h"
 
 @interface TSMainViewController ()
 
@@ -35,14 +37,16 @@
 #pragma mark - button  actions
 - (IBAction)myProductsButtonClick:(UIButton *)sender {
     TSMyProductsViewController *myProductsVC = [[TSMyProductsViewController alloc] init];
-    
     [self.navigationController pushViewController:myProductsVC animated:YES];
 }
 - (IBAction)sampleButtonClick:(UIButton *)sender {
-    
+    TSTemplateViewController *templateVC = [[TSTemplateViewController alloc] init];
+    [self.navigationController pushViewController:templateVC animated:YES];
 }
 - (IBAction)makeButtonClick:(UIButton *)sender {
 
+    TSMakeFirstViewController *makeFirstVC = [[TSMakeFirstViewController alloc] init];
+    [self.navigationController pushViewController:makeFirstVC animated:YES];
 }
 
 @end
