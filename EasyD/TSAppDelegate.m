@@ -16,16 +16,14 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"notFirst"]){
-        //第一次使用
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"notFirst"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
+    NSLog(@"初始：%d",[[NSUserDefaults standardUserDefaults] boolForKey:@"firsRun"]);
+    if ([self isFirstRun]){
+        NSLog(@"进入闪屏");
         TSFlashViewController *flashVC = [[TSFlashViewController alloc] init];
-//        UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:flashVC];
         self.window.rootViewController = flashVC;
 
     }else{
+        NSLog(@"进入主页");
         TSMainViewController *mainVC = [[TSMainViewController alloc] init];
         UINavigationController *naviController = [[UINavigationController alloc] initWithRootViewController:mainVC];
         self.window.rootViewController = naviController;
@@ -34,7 +32,17 @@
     [self.window makeKeyAndVisible];
     return YES;
 }
-
+- (BOOL)isFirstRun
+{
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    BOOL  hasRunBefore = [defaults boolForKey:@"firsRun"];
+    if(!hasRunBefore){
+        NSLog(@"这是第一次运行");
+        [defaults setBool:YES forKey:@"firsRun"];
+        return YES;
+    } 
+    return NO;
+}
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

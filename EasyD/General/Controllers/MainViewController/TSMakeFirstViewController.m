@@ -11,7 +11,7 @@
 
 @interface TSMakeFirstViewController ()<UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (nonatomic, strong) UIImagePickerController *imagePickerController;
-@property (nonatomic, strong) UIButton *choosePicBtn;
+@property (nonatomic, weak) UIButton *choosePicBtn;
 @end
 
 @implementation TSMakeFirstViewController
