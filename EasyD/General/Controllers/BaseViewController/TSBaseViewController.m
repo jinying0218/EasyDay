@@ -15,7 +15,7 @@
 @end
 
 @implementation TSBaseViewController
-
+#pragma mark - controller Methods
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -35,6 +35,13 @@
     }
 
 }
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    
+}
+
+#pragma mark - setupUI Methods
 //创建底部scrollView
 - (void)createRootScrollView
 {
@@ -67,6 +74,7 @@
         [leftBtn setImageEdgeInsets:UIEdgeInsetsMake( 6, 10, 6, 0)];
         [leftBtn addTarget:self action:@selector(leftButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         leftBtn.backgroundColor = [UIColor clearColor];
+        [leftBtn setTitle:@"返回修改" forState:UIControlStateNormal];
         [self.navigationBar addSubview:leftBtn];
         
     }
@@ -81,6 +89,7 @@
             [rightBtn setImage:[UIImage imageNamedString:@"nav_cancel"] forState:UIControlStateSelected];
         }
         [rightBtn addTarget:self action:@selector(rightButtonOnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [rightBtn setTitle:@"首页" forState:UIControlStateNormal];
         [self.navigationBar addSubview:rightBtn];
     }
     
@@ -95,7 +104,30 @@
     [self.navigationBar addSubview:titleLabel];
     
 }
+- (void)createProgressNavigationBar:(NSString *)currentStep
+{
+    self.progressNaviBar = [[UIView alloc] initWithFrame:CGRectMake(0, STATUS_BAR_HEGHT, KscreenW, KnaviBarHeight)];
+    self.progressNaviBar.backgroundColor = [UIColor colorWithHexString:@"#E0655A"];
+    self.progressNaviBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    
+    UILabel *titleLabel = [[UILabel alloc] init];
+    titleLabel.text = @"First-Second-End";
+    titleLabel.frame = CGRectMake( (KscreenW - 320)/2, 0, 320, 44);
+    titleLabel.contentMode = UIViewContentModeCenter;
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.textColor = [UIColor colorWithHexString:@"#ffffff"];
+    titleLabel.font = [UIFont systemFontOfSize:15];
+    titleLabel.backgroundColor = [UIColor clearColor];
 
+    NSRange range = [titleLabel.text rangeOfString:currentStep];
+    
+    NSMutableAttributedString *attributeString =[[NSMutableAttributedString alloc] initWithString:titleLabel.text];
+    [attributeString setAttributes: @ { NSForegroundColorAttributeName : [UIColor yellowColor], NSFontAttributeName : [UIFont systemFontOfSize: 20] }  range:range];
+    titleLabel.attributedText = attributeString;
+    
+    [self.progressNaviBar addSubview:titleLabel];
+}
+#pragma mark NavigationBar button Actions
 - (void)leftButtonClick:(UIButton *)button
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -103,7 +135,7 @@
 }
 - (void)rightButtonOnClick:(UIButton *)button
 {
-    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -130,10 +162,5 @@
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end

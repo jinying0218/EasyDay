@@ -10,7 +10,7 @@
 
 @implementation UILabel (TSLabelEX)
 
-+ (UILabel *)lableWithText:(NSString *)text fontname:(NSString *)fontName fontSize:(CGFloat)fontSize color:(NSString *)color
++ (UILabel *)lableWithText:(NSString *)text FontName:(NSString *)fontName FontSize:(CGFloat)fontSize FontColor:(NSString *)color
 {
     UILabel *label = [[UILabel alloc] init];
     label.text = text;
@@ -18,7 +18,6 @@
     [label setFont:[UIFont fontWithName:fontName size:fontSize]];
     label.adjustsFontSizeToFitWidth = YES;
     return label;
-
 }
 
 + (CGSize)sizeWithLabel:(UILabel *)label
